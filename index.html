@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử Dụng Chương Trình Con</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="bg-canvas"></div>
+        <!-- Overlay Error/Alert -->
+        <div id="alert-overlay" class="hidden">
+            <i class="fa-solid fa-triangle-exclamation neon-red-text"></i>
+            <h1 class="neon-red-text">QUÁ RỐI!</h1>
+        </div>
+
+        <!-- Slide 2: Code Trace (Prime) -->
+        <section id="slide-2" class="slide active">
+            <div class="split-layout">
+                <div class="code-pane glass-panel">
+                    <div class="mac-controls">
+                        <div class="mac-btn red"></div>
+                        <div class="mac-btn yellow"></div>
+                        <div class="mac-btn green"></div>
+                    </div>
+                    <pre><code id="s2-code" class="python">
+<span id="c2-1"><span class="tok-kw">def</span> <span class="tok-fn">prime</span><span class="tok-paren">(</span><span class="tok-var">n</span><span class="tok-paren">):</span></span>
+<span id="c2-2">    <span class="tok-var">C</span> <span class="tok-op">=</span> <span class="tok-num">0</span></span>
+<span id="c2-3">    <span class="tok-var">k</span> <span class="tok-op">=</span> <span class="tok-num">1</span></span>
+<span id="c2-4">    <span class="tok-kw">while</span> <span class="tok-var">k</span> <span class="tok-op">&lt;</span> <span class="tok-var">n</span><span class="tok-paren">:</span></span>
+<span id="c2-5">        <span class="tok-kw">if</span> <span class="tok-var">n</span> <span class="tok-op">%</span> <span class="tok-var">k</span> <span class="tok-op">==</span> <span class="tok-num">0</span><span class="tok-paren">:</span></span>
+<span id="c2-6">            <span class="tok-var">C</span> <span class="tok-op">=</span> <span class="tok-var">C</span> <span class="tok-op">+</span> <span class="tok-num">1</span></span>
+<span id="c2-7">        <span class="tok-var">k</span> <span class="tok-op">=</span> <span class="tok-var">k</span> <span class="tok-op">+</span> <span class="tok-num">1</span></span>
+<span id="c2-8">    <span class="tok-kw">if</span> <span class="tok-var">C</span> <span class="tok-op">==</span> <span class="tok-num">1</span><span class="tok-paren">:</span></span>
+<span id="c2-9">        <span class="tok-kw">return</span> <span class="tok-bool">True</span></span>
+<span id="c2-10">    <span class="tok-kw">else</span><span class="tok-paren">:</span></span>
+<span id="c2-11">        <span class="tok-kw">return</span> <span class="tok-bool">False</span></span>
+<span class="code-section-divider"></span>
+<span id="c2-12"><span class="tok-comment"># Chương trình chính</span></span>
+<span id="c2-13"><span class="tok-var">n</span> <span class="tok-op">=</span> <span class="tok-call">int</span><span class="tok-paren">(</span><span class="tok-call">input</span><span class="tok-paren">(</span><span class="tok-string">"Nhập số tự nhiên n: "</span><span class="tok-paren">))</span></span>
+<span id="c2-14"><span class="tok-kw">for</span> <span class="tok-var">k</span> <span class="tok-kw">in</span> <span class="tok-call">range</span><span class="tok-paren">(</span><span class="tok-num">1</span><span class="tok-paren">,</span> <span class="tok-var">n</span><span class="tok-op">+</span><span class="tok-num">1</span><span class="tok-paren">):</span></span>
+<span id="c2-15">    <span class="tok-kw">if</span> <span class="tok-fn">prime</span><span class="tok-paren">(</span><span class="tok-var">k</span><span class="tok-paren">):</span></span>
+<span id="c2-16">        <span class="tok-call">print</span><span class="tok-paren">(</span><span class="tok-var">k</span><span class="tok-paren">,</span> <span class="tok-var">end</span><span class="tok-op">=</span><span class="tok-string">" "</span><span class="tok-paren">)</span></span>
+                    </code></pre>
+                </div>
+                <div class="visual-pane glass-panel">
+                    <div id="s2-array" class="array-container hidden">
+                        <div class="array-box">1</div><div class="array-box">2</div>
+                        <div class="array-box">3</div><div class="array-box">4</div>
+                        <div class="array-box">5</div><div class="array-box">6</div>
+                        <div class="array-box">7</div>
+                    </div>
+                    <div id="s2-vars" class="vars-table hidden">
+                        <div class="var-row"><span>n:</span> <span id="v2-n" class="var-val">7</span></div>
+                        <div class="var-row"><span>C:</span> <span id="v2-c" class="var-val">0</span></div>
+                        <div class="var-row"><span>k:</span> <span id="v2-k" class="var-val">1</span></div>
+                    </div>
+                    <div id="s2-tooltip" class="explanation-box hidden">Giải thích ở đây</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Code Trace (Sum positive) -->
+        <section id="slide-3" class="slide">
+            <div class="split-layout">
+                <div class="code-pane glass-panel">
+                    <div class="mac-controls">
+                        <div class="mac-btn red"></div>
+                        <div class="mac-btn yellow"></div>
+                        <div class="mac-btn green"></div>
+                    </div>
+                    <pre><code id="s3-code" class="python">
+<span id="c3-1"><span class="tok-kw">def</span> <span class="tok-fn">tongduong</span><span class="tok-paren">(</span><span class="tok-var">A</span><span class="tok-paren">):</span></span>
+<span id="c3-2">    <span class="tok-var">S</span> <span class="tok-op">=</span> <span class="tok-num">0</span></span>
+<span id="c3-3">    <span class="tok-kw">for</span> <span class="tok-var">k</span> <span class="tok-kw">in</span> <span class="tok-var">A</span><span class="tok-paren">:</span></span>
+<span id="c3-4">        <span class="tok-kw">if</span> <span class="tok-var">k</span> <span class="tok-op">&gt;</span> <span class="tok-num">0</span><span class="tok-paren">:</span></span>
+<span id="c3-5">            <span class="tok-var">S</span> <span class="tok-op">=</span> <span class="tok-var">S</span> <span class="tok-op">+</span> <span class="tok-var">k</span></span>
+<span id="c3-6">    <span class="tok-kw">return</span> <span class="tok-var">S</span></span>
+<span class="code-section-divider"></span>
+<span id="c3-7"><span class="tok-comment"># Chương trình chính</span></span>
+<span id="c3-8"><span class="tok-var">A</span> <span class="tok-op">=</span> <span class="tok-paren">[</span><span class="tok-op">-</span><span class="tok-num">2</span><span class="tok-paren">,</span> <span class="tok-num">1</span><span class="tok-paren">,</span> <span class="tok-num">5</span><span class="tok-paren">,</span> <span class="tok-num">10</span><span class="tok-paren">,</span> <span class="tok-op">-</span><span class="tok-num">3</span><span class="tok-paren">]</span></span>
+<span id="c3-9"><span class="tok-var">B</span> <span class="tok-op">=</span> <span class="tok-paren">[</span><span class="tok-num">1</span><span class="tok-paren">,</span> <span class="tok-op">-</span><span class="tok-num">10</span><span class="tok-paren">,</span> <span class="tok-op">-</span><span class="tok-num">11</span><span class="tok-paren">,</span> <span class="tok-num">8</span><span class="tok-paren">,</span> <span class="tok-num">2</span><span class="tok-paren">,</span> <span class="tok-op">-</span><span class="tok-num">5</span><span class="tok-paren">]</span></span>
+<span id="c3-10"><span class="tok-fn">tongduong</span><span class="tok-paren">(</span><span class="tok-var">A</span><span class="tok-paren">)</span></span>
+<span id="c3-11"><span class="tok-fn">tongduong</span><span class="tok-paren">(</span><span class="tok-var">B</span><span class="tok-paren">)</span></span>
+<span id="c3-12"><span class="tok-call">print</span><span class="tok-paren">(</span><span class="tok-var">B</span><span class="tok-paren">)</span></span>
+                    </code></pre>
+                </div>
+                <div class="visual-pane glass-panel">
+                    <div id="s3-array" class="array-container hidden">
+                        <div class="array-box">0</div>
+                        <div class="array-box">2</div>
+                        <div class="array-box">-1</div>
+                        <div class="array-box">5</div>
+                        <div class="array-box">10</div>
+                        <div class="array-box">-3</div>
+                    </div>
+                    <div id="s3-vars" class="vars-table giant hidden">
+                        <div class="var-row"><span>S = </span> <span id="v3-s" class="var-val pulse">0</span></div>
+                    </div>
+                    <div id="s3-tooltip" class="explanation-box hidden">Giải thích ở đây</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash overlay for glitch -->
+        <div id="glitch-overlay"></div>
+
+        <!-- Slide 4: Tổng kết -->
+        <section id="slide-4" class="slide">
+            <div class="sum2-bg">
+                <div class="sum2-streak sum2-streak-1"></div>
+                <div class="sum2-streak sum2-streak-2"></div>
+                <div class="sum2-streak sum2-streak-3"></div>
+                <div class="sum2-glow sum2-glow-1"></div>
+                <div class="sum2-glow sum2-glow-2"></div>
+            </div>
+            <div class="sum2-layout">
+                <div class="sum2-left">
+                    <div class="sum2-tag" id="sum2-tag">✦ TỔNG KẾT</div>
+                    <h1 class="sum2-title" id="sum2-title">Chương<br>Trình<br><span class="sum2-title-accent">Con</span></h1>
+                </div>
+                <div class="sum2-right">
+                    <div class="sum2-box" id="sum2-box">
+                        <p class="sum2-body">Việc sử dụng chương trình con giúp <strong>chia nhỏ bài toán</strong> để dễ làm việc nhóm, làm cho cấu trúc <strong>chương trình chính rõ ràng</strong> và thuận tiện hơn khi cần <strong>hiệu chỉnh hay nâng cấp</strong>.</p>
+                    </div>
+                    <div class="sum2-footer" id="sum2-footer">
+                        <span class="sum2-brand">LẬP TRÌNH 11</span>
+                        <span class="sum2-dot">·</span>
+                        <span class="sum2-sub">Chương trình con</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
